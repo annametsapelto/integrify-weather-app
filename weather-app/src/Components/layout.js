@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import Header from './header';
 import Form from './form';
-import WeatherCard from './weatherCard';
-import FailureBox from './failureBox';
+import Result from './result';
 
 function Layout() {
     const [cityName, setCityname] = useState('');
@@ -10,13 +9,12 @@ function Layout() {
     const addCityName = (name) => {
         setCityname(name);
     }
-    
+
     return (
         <div>
             <Header></Header>
             <Form></Form>
-            <FailureBox></FailureBox>
-            <WeatherCard></WeatherCard>
+            <Result></Result>
         </div>
     )
 }
