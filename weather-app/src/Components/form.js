@@ -11,8 +11,9 @@ function Form() {
         <div>
             <h3>Enter the city below</h3>
             <form onSubmit={event => handleSubmit(event)}>
-                <label for="city">City:</label>
-                <input type="text" id="city" onChange={e => setCityname(e.target.value)} value={cityName}></input>
+                <label>City: 
+                    <input type="text" id="city" onChange={e => setCityname(e.target.value)} value={cityName}></input>
+                </label>
                 <input type="submit" value="Search"></input>
             </form>
             <p>{cityName}</p>
