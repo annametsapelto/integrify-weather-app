@@ -1,9 +1,12 @@
 import WeatherCard from "./weatherCard";
 import FailureBox from "./failureBox";
 
-function Result() {
+function Result(props) {
     return (
-        <div></div>
+        <div>
+            <WeatherCard city={props.cityName}></WeatherCard>
+            <FailureBox></FailureBox>
+        </div>
     )
 }
 

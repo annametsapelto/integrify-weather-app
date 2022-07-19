@@ -1,10 +1,11 @@
 import { useState } from 'react';
 
-function Form() {
+function Form(props) {
     const [cityName, setCityname] = useState('');
     const handleSubmit = (event) => {
       event.preventDefault();
       setCityname('');
+      props.addCityName(cityName);
     }
 
     return (
@@ -16,7 +17,6 @@ function Form() {
                 </label>
                 <input type="submit" value="Search"></input>
             </form>
-            <p>{cityName}</p>
         </div>
     )
 }

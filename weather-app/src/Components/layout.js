@@ -13,8 +13,8 @@ function Layout() {
     return (
         <div>
             <Header></Header>
-            <Form></Form>
-            <Result></Result>
+            <Form addCityName = {addCityName}></Form>
+            <Result cityName={cityName}></Result>
         </div>
     )
 }
