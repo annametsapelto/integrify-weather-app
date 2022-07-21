@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import Header from './header';
 import Form from './form';
 import WeatherCard from './weatherCard';
@@ -6,7 +6,6 @@ import FailureBox from './failureBox';
 import axios from 'axios';
 
 function Layout() {
-    const [data, setData] = useState([]);
     const [cityName, setCityName] = useState('');
     const [locationKey, setLocationKey] = useState('');
     const [fetchFailed, setFetchFailed] = useState(false);
@@ -31,7 +30,7 @@ function Layout() {
             <Header></Header>
             <Form onSubmitForm={onSubmitForm}></Form>
             {fetchFailed && <FailureBox></FailureBox>}
-            <WeatherCard data={data} cityName = {cityName}></WeatherCard>
+            {locationKey && <WeatherCard locationKey={locationKey} cityName = {cityName}></WeatherCard>}
         </div>
     )
 }
