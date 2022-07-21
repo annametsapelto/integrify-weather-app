@@ -13,28 +13,25 @@ function Layout() {
 
     function onSubmitForm(cityName) {
         setCityName(cityName);
+        setFetchFailed(false);
         axios.get(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=988RYIGWsNefHEZGGmWa42dbtjR5yWwm&q=${cityName}`)
             .then((response) => {
                 setLocationKey(response.data[0].Key);
                 console.log("Key is: "+response.data[0].Key);
-        });
-    }    
-
-    function addCityname(cityName) {
-        setCityName(cityName);
-        console.log("In Layout: " + cityName);
+                })
+        .catch(error => {
+            setFetchFailed(true);
+        })
+        .then();
     }
-
-    function addFetchFailed( fetchFailed) {
-        setFetchFailed(true);
-    }
+    
 
     return (
         <div>
             <Header></Header>
             <Form onSubmitForm={onSubmitForm}></Form>
             {fetchFailed && <FailureBox></FailureBox>}
-            <WeatherCard data={data} cityName = {cityName} addFetchFailed={addFetchFailed}></WeatherCard>
+            <WeatherCard data={data} cityName = {cityName}></WeatherCard>
         </div>
     )
 }
