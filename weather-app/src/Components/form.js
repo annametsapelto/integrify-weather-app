@@ -2,10 +2,10 @@ import { useState } from 'react';
 
 function Form(props) {
     const [cityName, setCityname] = useState('');
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      setCityname('');
-      props.addCityName(cityName);
+     
+    function handleSubmit(event) {
+        event.preventDefault();
+        props.onSubmitForm(cityName);
     }
 
     return (
@@ -20,5 +20,6 @@ function Form(props) {
         </div>
     )
 }
+
 
 export default Form;

@@ -1,7 +1,16 @@
-function WeatherCard(props) {
+
+function WeatherCard( {data, cityName}) {
+
     return (
         <div>
-            <p>Here is the weather for {props.city}</p>
+            <h4>Here is the weather for {cityName}</h4>
+            <p>Here is data {data[0]}</p>
+            {!data && <div>
+                <p>{data[0].WeatherText}</p>
+                <p>{Math.ceil(data[0].Temperature.Metric.Value)}
+                    <sup>&deg;{data[0].Temperature.Metric.Unit}</sup>
+                </p>
+            </div>}
         </div>
     )
 }
