@@ -1,7 +1,24 @@
-.form {
+.cityForm {
     color: rgb(43, 49, 54);
+    font-size: large;
 }
 
-.form h3 {
+.cityForm h3 {
     text-shadow: 3px 2px 2px grey;
+}
+input {
+    height: 30px;
+    border-radius: 5px;
+    border:1px solid rgb(43, 49, 54)
+}
+button {
+    height: 30px;
+    width: 80px;
+    border: 1px solid rgb(37, 37, 136);
+    background-image: radial-gradient(rgba(185, 207, 231, 0.5), rgba(78, 103, 212, 0.5));
+    color: rgb(43, 49, 54);
+    box-shadow: 5px 5px 4px rgba(74, 87, 95, 0.6);
+}
+label {
+    padding-right: 10px;
 }

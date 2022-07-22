@@ -29,7 +29,7 @@ function Layout() {
             <Header></Header>
             <Form onSubmitForm={onSubmitForm}></Form>
             {fetchFailed && <FailureBox></FailureBox>}
-            {locationKey && <WeatherCard locationKey={locationKey} cityName = {cityName}></WeatherCard>}
+            {locationKey && !fetchFailed && <WeatherCard locationKey={locationKey} cityName = {cityName}></WeatherCard>}
         </div>
     )
 }

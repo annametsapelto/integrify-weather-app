@@ -54,7 +54,7 @@ function WeatherCard( {locationKey, cityName}) {
 
             return (
                 <>
-                {showCard &&(
+                {showCard && locationKey &&(
                 <div className="card">
                     
                     <div>

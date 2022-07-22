@@ -10,13 +10,12 @@ function Form(props) {
     }
 
     return (
-        <div className="form">
+        <div className="cityForm">
             <h3>Enter the city below</h3>
             <form onSubmit={event => handleSubmit(event)}>
-                <label>City: 
-                    <input type="text" id="city" onChange={e => setCityname(e.target.value)} value={cityName}></input>
+                <label>City:  <input type="text" id="city" onChange={e => setCityname(e.target.value)} value={cityName}></input>
                 </label>
-                <input type="submit" value="Search"></input>
+                <button type="submit" value="Search">Search</button>
             </form>
         </div>
     )
