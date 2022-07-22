@@ -17,7 +17,7 @@ function WeatherCard( {locationKey, cityName}) {
         setShowCard(false);
         setData(null);
         if(locationKey !== undefined) {        
-            axios.get(`http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=988RYIGWsNefHEZGGmWa42dbtjR5yWwm`)
+            axios.get(`https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=988RYIGWsNefHEZGGmWa42dbtjR5yWwm`)
         .then((response) => {
             setData(response.data[0]);
             setWeatherText(response.data[0].WeatherText);

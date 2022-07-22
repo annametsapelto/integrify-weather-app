@@ -13,7 +13,7 @@ function Layout() {
     function onSubmitForm(cityName) {
         setCityName(cityName);
         setFetchFailed(false);
-        axios.get(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=988RYIGWsNefHEZGGmWa42dbtjR5yWwm&q=${cityName}`)
+        axios.get(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=988RYIGWsNefHEZGGmWa42dbtjR5yWwm&q=${cityName}`)
             .then((response) => {
                 setLocationKey(response.data[0].Key);
                 })
