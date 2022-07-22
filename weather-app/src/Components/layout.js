@@ -16,7 +16,6 @@ function Layout() {
         axios.get(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=988RYIGWsNefHEZGGmWa42dbtjR5yWwm&q=${cityName}`)
             .then((response) => {
                 setLocationKey(response.data[0].Key);
-                console.log("Key is: "+response.data[0].Key);
                 })
         .catch(error => {
             setFetchFailed(true);

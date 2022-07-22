@@ -11,7 +11,7 @@ import sunny from '../Images/sunny.png';
 function WeatherCard( {locationKey, cityName}) {
     const [data, setData] = useState(null);
     const [showCard, setShowCard] = useState(false);
-    const [icon, setIcon]  = useState('');
+    const [weatherText, setWeatherText] = useState('');
 
     useEffect(() => {
         setShowCard(false);
@@ -20,38 +20,38 @@ function WeatherCard( {locationKey, cityName}) {
             axios.get(`http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=988RYIGWsNefHEZGGmWa42dbtjR5yWwm`)
         .then((response) => {
             setData(response.data[0]);
-            getWeatherIcon(response.data[0].WeatherText);
+            setWeatherText(response.data[0].WeatherText);
             setShowCard(true);
-            console.log(icon);
         })
         .catch(error => {
             <p>Sorry, loading failed!</p>
         })
     }}, [locationKey], [data])
 
-    function getWeatherIcon(text) {
-        if (text === 'Partly sunny') {
-            setIcon({halfcloud});
+    function getWeatherIcon() {
+        if (weatherText === 'Partly sunny' || weatherText === 'Mostly sunny') {
+            return <img src={halfcloud} alt="Partly sunny"/>;
         }
-        if (text === 'Sunny') {
-            setIcon({sunny});
+        if (weatherText === 'Sunny' || weatherText === 'Mostly clear' || weatherText === 'Clear') {
+            return <img src={sunny} alt="Sunny"/>;
         }
-        if (text === 'Cloudy') {
-            setIcon({cloudy});
+        if (weatherText === 'Cloudy') {
+            return <img src={cloudy} alt="Cloudy"/>;
         }
-        if (text === 'Rainy') {
-            setIcon({rain});
+        if (weatherText === 'Rainy') {
+            return <img src={rain} alt="Rainy"/>;
         }
-        if (text === 'Snowy') {
-            setIcon({snow});
+        if (weatherText === 'Snowy') {
+            return <img src={snow} alt="Snowy"/>;
         }
-        if (text === 'Thunder') {
-            setIcon({lightning});
+        if (weatherText === 'Thunder') {
+            return <img src={lightning} alt="Thunder"/>;
         }
         else {
-            setIcon({cloudy});
+            return <img src={cloudy} alt="Cloudy"/>;
         }
     }
+
             return (
                 <>
                 {showCard &&(
@@ -59,7 +59,7 @@ function WeatherCard( {locationKey, cityName}) {
                     
                     <div>
                         <h4>{cityName}</h4>
-                        <img src={icon} alt="Weather Icon"/>
+                        {getWeatherIcon()}
                         <p className="temperature">{Math.ceil(data.Temperature.Metric.Value)}
                             <sup>&deg;{data.Temperature.Metric.Unit}</sup>
                         </p>

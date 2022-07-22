@@ -19,3 +19,8 @@
 .weatherText {
     font-size: large;
 }
+.card img {
+    height: 100px;
+    float: right;
+    padding-right: 30px;
+}
