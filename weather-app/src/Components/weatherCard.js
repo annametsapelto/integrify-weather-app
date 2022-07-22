@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Styles/card.css';
 
 function WeatherCard( {locationKey, cityName}) {
     const [data, setData] = useState(null);
     const [showCard, setShowCard] = useState(false);
-    const [weather, setWeather] = useState('');
-    const [unit, setUnit] = useState('');
-    const [temperature, setTemperature] = useState('');
 
     useEffect(() => {
         setShowCard(false);
@@ -27,13 +25,14 @@ function WeatherCard( {locationKey, cityName}) {
             return (
                 <>
                 {showCard &&(
-                <div>
-                    <h4>Here is the weather for {cityName}</h4>
+                <div className="card">
+                    <h4>{cityName}</h4>
                     <div>
-                        <p>{data.WeatherText}</p>
-                        <p>{Math.ceil(data.Temperature.Metric.Value)}
+                        <p className="temperature">{Math.ceil(data.Temperature.Metric.Value)}
                             <sup>&deg;{data.Temperature.Metric.Unit}</sup>
                         </p>
+                        <p className="weatherText">{data.WeatherText}</p>
+
                     </div>
                 </div>)  
                     }

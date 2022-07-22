@@ -1,0 +1,11 @@
+.header h1 {
+    text-shadow: 3px 2px 2px grey;
+}
+.header h2 {
+    text-shadow: 3px 2px 2px grey;
+    margin-left: 100px;
+}
+.header {
+    margin-bottom: 50px;
+    color: rgb(43, 49, 54);
+}

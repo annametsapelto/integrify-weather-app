@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './Styles/form.css';
 
 function Form(props) {
     const [cityName, setCityname] = useState('');
@@ -9,7 +10,7 @@ function Form(props) {
     }
 
     return (
-        <div>
+        <div className="form">
             <h3>Enter the city below</h3>
             <form onSubmit={event => handleSubmit(event)}>
                 <label>City: 

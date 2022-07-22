@@ -1,0 +1,14 @@
+.fail {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    height: 150px;
+    border: 1px solid red;
+    border-radius: 8px;
+    background-image: radial-gradient(rgba(207, 127, 95, 0.5), rgba(224, 66, 66, 0.5));
+    color: white;
+    font-size: larger;
+    margin-top: 50px;
+}

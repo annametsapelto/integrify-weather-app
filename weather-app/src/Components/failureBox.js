@@ -1,6 +1,8 @@
+import './Styles/failure.css';
+
 function FailureBox() {
     return (
-        <div>
+        <div className="fail">
             <p>Sorry, we could not find that location!</p>
         </div>
     )

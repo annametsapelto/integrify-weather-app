@@ -3,7 +3,7 @@ import Layout from './Components/layout';
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <Layout></Layout>
     </div>
   );
