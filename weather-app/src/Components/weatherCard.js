@@ -29,10 +29,10 @@ function WeatherCard( {locationKey, cityName}) {
     }}, [locationKey], [data])
 
     function getWeatherIcon() {
-        if (weatherText === 'Partly sunny' || weatherText === 'Mostly sunny') {
+        if (weatherText === 'Partly sunny' || weatherText === 'Mostly sunny' || weatherText === 'Mostly clear') {
             return <img src={halfcloud} alt="Partly sunny"/>;
         }
-        if (weatherText === 'Sunny' || weatherText === 'Mostly clear' || weatherText === 'Clear') {
+        if (weatherText === 'Sunny'  || weatherText === 'Clear' || weatherText === 'Hazy sunshine') {
             return <img src={sunny} alt="Sunny"/>;
         }
         if (weatherText === 'Cloudy') {
