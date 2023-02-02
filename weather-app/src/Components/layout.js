@@ -3,19 +3,22 @@ import Header from './header';
 import Form from './form';
 import WeatherCard from './weatherCard';
 import FailureBox from './failureBox';
+import Recents from './recents';
 import axios from 'axios';
 
 function Layout() {
     const [cityName, setCityName] = useState('');
     const [locationKey, setLocationKey] = useState('');
     const [fetchFailed, setFetchFailed] = useState(false);
+    const [haveData, setHaveData] = useState(false);
 
     function onSubmitForm(cityName) {
         setCityName(cityName);
         setFetchFailed(false);
-        axios.get(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=988RYIGWsNefHEZGGmWa42dbtjR5yWwm&q=${cityName}`)
+        axios.get()
             .then((response) => {
                 setLocationKey(response.data[0].Key);
+                setHaveData(true);
                 })
         .catch(error => {
             setFetchFailed(true);
@@ -30,6 +33,7 @@ function Layout() {
             <Form onSubmitForm={onSubmitForm}></Form>
             {fetchFailed && <FailureBox></FailureBox>}
             {locationKey && !fetchFailed && <WeatherCard locationKey={locationKey} cityName = {cityName}></WeatherCard>}
+            <Recents cityName={cityName}></Recents>
         </div>
     )
 }
